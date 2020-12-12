@@ -50,7 +50,7 @@ const Pokemon = () => {
               </div>
               <div className="status-summary">
                 <div className="name">
-                  #{pokemonState.successGetPokemonDetail.order}{" "}
+                  #{pokemonState.successGetPokemonDetail.id}{" "}
                   {pokemonState.successGetPokemonDetail.name}
                 </div>
                 <div className="stats">

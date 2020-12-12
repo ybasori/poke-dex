@@ -144,7 +144,7 @@ const Home = () => {
             .map(
               (
                 item: {
-                  order: number;
+                  id: number;
                   name: string;
                   sprites: { front_default: string };
                   types: { type: { name: string } }[];
@@ -160,7 +160,7 @@ const Home = () => {
                     <img src={item.sprites.front_default} />
                   </div>
                   <div className="wrap-summary">
-                    <div className="number">#{item.order}</div>
+                    <div className="number">#{item.id}</div>
                     <div className="name">{item.name}</div>
                     <div className="types">
                       {item.types.map((type, childKey) => (

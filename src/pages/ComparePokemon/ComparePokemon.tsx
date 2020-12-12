@@ -39,7 +39,7 @@ const ComparePokemon = () => {
             </div>
             <div className="status-summary">
               <div className="name">
-                #{pokemon.order} {pokemon.name}
+                #{pokemon.id} {pokemon.name}
               </div>
               <div className="stats">
                 <div className="stat">
