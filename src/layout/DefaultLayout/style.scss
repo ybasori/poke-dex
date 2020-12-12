@@ -1,0 +1,70 @@
+.default {
+  &.screen-wrap {
+    background-color: #b1b1b1;
+    margin: 30px 30px 0;
+    border-radius: 20px;
+    padding: 0 20px;
+    .two-small-red-circle {
+      width: 40px;
+      display: flex;
+      margin: auto;
+      height: 30px;
+      align-items: center;
+      .small-red-circle {
+        margin-right: auto;
+        margin-left: auto;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #de4141;
+        border: solid 1px #000;
+      }
+    }
+    .screen {
+      background-color: #fff;
+      border: 3px solid #000;
+      margin: auto;
+      height: 60vh;
+      overflow: hidden;
+      background-color: #fef2c0;
+      position: relative;
+
+      .home-button {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .wrap-two-item {
+      display: flex;
+      padding: 30px;
+      align-items: center;
+      .wrap-big-circle {
+        display: flex;
+        flex: 1;
+        .big-circle {
+          height: 40px;
+          width: 40px;
+          background-color: #a70606;
+          border-radius: 50%;
+          border-left: solid #7e2f32 3.5px;
+          border-bottom: solid #7e2f32 3.5px;
+        }
+      }
+      .wrap-dashes {
+        display: flex;
+        .dashes {
+          display: flex;
+          flex: 1;
+          font-size: 30px;
+        }
+        .dashes:last-child {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+}
