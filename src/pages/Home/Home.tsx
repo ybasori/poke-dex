@@ -19,22 +19,24 @@ const Home = () => {
 
   const [showFilter, setShowFilter] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
-  const [offset, setOffset] = useState(0);
-  const [limit] = useState(10);
+  // const [offset, setOffset] = useState(0);
+  // const [limit] = useState(10);
   const [pokeTypes, setPokeTypes] = useState<any>([]);
   const [selectedTypeFilter, setSelectedTypeFilter] = useState<any>([]);
 
   const fetchDataPokemon = useCallback(
-    (os) => {
+    (offset: number) => {
       setIsFetching(true);
-      dispatch(getPokemon({ offset: os, limit }));
-      setOffset(os);
+      dispatch(getPokemon({ offset, limit: 10 }));
     },
-    [dispatch, limit]
+    [dispatch]
   );
 
   const onLoadMore = () => {
-    fetchDataPokemon(offset + limit);
+    fetchDataPokemon(
+      pokemonState.successGetPokemon.offset +
+        pokemonState.successGetPokemon.limit
+    );
     setTimeout(() => {
       if (listDataRef.current) {
         listDataRef.current.scrollTop =
@@ -98,20 +100,9 @@ const Home = () => {
 
   useEffect(() => {
     if (isFetching && pokemonState.successGetPokemon) {
-      setOffset(pokemonState.successGetPokemon.offset);
       setIsFetching(false);
     }
   }, [isFetching, pokemonState.successGetPokemon]);
-
-  useEffect(() => {
-    if (
-      pokemonState.successGetPokemon &&
-      offset === 0 &&
-      pokemonState.successGetPokemon.offset !== offset
-    ) {
-      setOffset(pokemonState.successGetPokemon.offset);
-    }
-  }, [offset, pokemonState.successGetPokemon]);
   return (
     <div id="home">
       {pokemonState.compare.length > 0 && (
