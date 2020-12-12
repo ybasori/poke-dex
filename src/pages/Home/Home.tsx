@@ -98,10 +98,20 @@ const Home = () => {
 
   useEffect(() => {
     if (isFetching && pokemonState.successGetPokemon) {
+      setOffset(pokemonState.successGetPokemon.offset);
       setIsFetching(false);
     }
   }, [isFetching, pokemonState.successGetPokemon]);
 
+  useEffect(() => {
+    if (
+      pokemonState.successGetPokemon &&
+      offset === 0 &&
+      pokemonState.successGetPokemon.offset !== offset
+    ) {
+      setOffset(pokemonState.successGetPokemon.offset);
+    }
+  }, [offset, pokemonState.successGetPokemon]);
   return (
     <div id="home">
       {pokemonState.compare.length > 0 && (
