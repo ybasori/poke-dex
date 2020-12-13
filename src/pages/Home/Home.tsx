@@ -183,7 +183,11 @@ const Home = () => {
           </div>
         )}
         {!isFetching && pokemonState.successGetPokemon && (
-          <button type="button" onClick={onLoadMore}>
+          <button
+            type="button"
+            disabled={pokemonState.isLoadingGetPokemon}
+            onClick={onLoadMore}
+          >
             Load more
           </button>
         )}
